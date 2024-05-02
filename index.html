@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To do App</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="top-area">
+        <div class="calendar">
+          <div class="date"></div>
+          <div class="month-year">
+            <div class="month"></div>
+            <div class="year"></div>
+          </div>
+        </div>
+        <div class="dark-light">
+          <input type="checkbox" id="darkLight" />
+          <label for="darkLight"></label>
+        </div>
+      </section>
+      <section class="center-area">
+        <div class="tab">
+          <button class="todo-tab active">
+            <span class="material-icons-outlined">checklist</span>todo
+          </button>
+          <button class="important-todo-tab">
+            <span class="material-icons">bookmark</span>important
+          </button>
+        </div>
+        <div class="main-todo-box todo-box active">
+          <ul class="todo-list"></ul>
+        </div>
+        <div class="important-todo-box todo-box">
+          <ul class="important-list"></ul>
+        </div>
+      </section>
+      <section class="bottom-area">
+        <button class="add-todo-btn">
+          <span class="material-icons-outlined"> add </span>
+        </button>
+      </section>
+      <section class="add-todo-wrap">
+        <div class="add-todo-box">
+          <button class="close-btn">
+            <span class="material-icons"> close </span>
+          </button>
+          <input
+            type="text"
+            placeholder="what is your plan?"
+            class="add-li-input"
+          />
+          <button class="add-li-btn">add</button>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
