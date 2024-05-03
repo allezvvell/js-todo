@@ -87,7 +87,7 @@ const paintList = (target, todoArr) => {
       newTodoLi.classList.add('important');
     }
 
-    newTodoLi.innerHTML = `<div class='check-box'><span class="material-icons-outlined"> done </span></div>
+    newTodoLi.innerHTML = `<div class='check-box'><span class="material-icons-outlined">done</span></div>
     <span class='txt'>${todo.text}</span>
     <span class='material-icons-outlined mark'>${
       todo.important ? 'bookmark' : 'bookmark_border'
@@ -96,21 +96,22 @@ const paintList = (target, todoArr) => {
 
     target.append(newTodoLi);
 
-    //완료버튼 기능
-    newTodoLi.querySelector('.check-box').addEventListener('click', () => {
-      toggleProperty(newTodoLi, 'done');
-      paintLists();
-    });
-    // 북마크버튼 기능
-    newTodoLi.querySelector('.mark').addEventListener('click', () => {
-      toggleProperty(newTodoLi, 'important');
-      paintLists();
-    });
-    //삭제버튼 기능
-    newTodoLi.querySelector('.delete').addEventListener('click', () => {
-      AllTodo = AllTodo.filter(
-        (todo) => todo.id != newTodoLi.getAttribute('data-id')
-      );
+    // 이벤트 위임
+    newTodoLi.addEventListener('click', (e) => {
+      // 완료버튼 기능
+      if (e.target.innerHTML === 'done') {
+        toggleProperty(e.currentTarget, 'done');
+      }
+      // 북마크버튼 기능
+      if (e.target.classList.contains('mark')) {
+        toggleProperty(e.currentTarget, 'important');
+      }
+      // 삭제버튼 기능
+      if (e.target.innerHTML === 'delete') {
+        AllTodo = AllTodo.filter(
+          (todo) => todo.id != e.currentTarget.getAttribute('data-id')
+        );
+      }
       paintLists();
     });
   });

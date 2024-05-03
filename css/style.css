@@ -146,11 +146,10 @@ body {
 }
 .todo-li .check-box span {
   margin-top: -2px;
-  visibility: hidden;
-  color: #50e3a4;
+  color: transparent;
 }
 .todo-li.done .check-box span {
-  visibility: visible;
+  color: #50e3a4;
 }
 .todo-li .txt {
   flex: 7;
